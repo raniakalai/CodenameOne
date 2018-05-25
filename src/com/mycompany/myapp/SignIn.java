@@ -101,7 +101,8 @@ public class SignIn extends BaseForm {
         signIn.addActionListener((ActionListener) (ActionEvent evt) -> {
             String email = username.getText();
             String pass = password.getText();
-            Response<Map> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/ws/login/"+email+"/"+pass+"/0").acceptJson().getAsJsonMap();
+            System.out.println("http://localhost/pirania/web/app_dev.php/login/"+email+"/"+pass+"/0");
+            Response<Map> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/login/"+email+"/"+pass+"/0").acceptJson().getAsJsonMap();
             
             if(resultData.getResponseCode() != 200) {
                 callSerially(() -> {
