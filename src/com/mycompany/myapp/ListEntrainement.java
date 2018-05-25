@@ -156,7 +156,7 @@ public class ListEntrainement extends BaseForm {
       
         l.removeAll();
         l.setScrollableY(true);
-        Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/entrainement").acceptJson().getAsString();
+        Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/ws/entrainement").acceptJson().getAsString();
             if(resultData.getResponseCode() != 200) {
                 callSerially(() -> {
                     ToastBar.showErrorMessage("Erreur\n");
@@ -183,7 +183,7 @@ public class ListEntrainement extends BaseForm {
    Voiture getVoiture (int id ){
        
        Voiture v = new Voiture();
-       Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/voiture/"+id).acceptJson().getAsString();
+       Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/ws/voiture/"+id).acceptJson().getAsString();
             if(resultData.getResponseCode() != 200) {
                 callSerially(() -> {
                     ToastBar.showErrorMessage("Erreur\n");
@@ -209,7 +209,7 @@ public class ListEntrainement extends BaseForm {
     Monitor getMonitor (int id ){
        
        Monitor v = new Monitor();
-       Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/monitor/"+id).acceptJson().getAsString();
+       Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/ws/monitor/"+id).acceptJson().getAsString();
             if(resultData.getResponseCode() != 200) {
                 callSerially(() -> {
                     ToastBar.showErrorMessage("Erreur\n");
@@ -322,8 +322,8 @@ public class ListEntrainement extends BaseForm {
                                 ToastBar.showMessage("you need to choose a car and monitor first", FontImage.MATERIAL_INFO);
 
                             }else{
-                                System.out.println("http://localhost/pirania/web/app_dev.php/entrainement/create/"+SignIn.candidat.getId()+"/"+idmoniteur+"/"+idvoiture+"/"+dateTimePicker.getDate().getTime());
-                                Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/entrainement/create/"+SignIn.candidat.getId()+"/"+idmoniteur+"/"+idvoiture+"/"+dateTimePicker.getDate()).acceptJson().getAsString();
+                                System.out.println("http://localhost/pirania/web/app_dev.php/ws/entrainement/create/"+SignIn.candidat.getId()+"/"+idmoniteur+"/"+idvoiture+"/"+dateTimePicker.getDate().getTime());
+                                Response<String> resultData = Rest.get("http://localhost/pirania/web/app_dev.php/ws/entrainement/create/"+SignIn.candidat.getId()+"/"+idmoniteur+"/"+idvoiture+"/"+dateTimePicker.getDate()).acceptJson().getAsString();
                                 if(resultData.getResponseCode() != 200) {
                                     callSerially(() -> {
                                         ToastBar.showErrorMessage("Erreur\n");
